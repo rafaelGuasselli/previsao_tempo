@@ -5,5 +5,6 @@ repo = WeatherRepository()
 file = FileAdapter()
 
 resultado = repo.load("Florianópolis", "2024-06-14","2024-06-16")
+resultado = repo.load("Porto Alegre", "2024-06-14","2024-06-16")
 for data in resultado:
 	print(str(data))

@@ -50,6 +50,7 @@ class WeatherRepository:
 			if len(daysTarget) == 0 or timestamp > daysTarget[-1]["timestamp"]:
 				daysTarget.append(element)
 		
+		dictTarget = dictSource
 		dictTarget["data"] = daysTarget
 		self.fileAdapter.writeToFile(f"{self.path}/{city}.json", self.jsonAdapter.dictToText(dictTarget))
 
@@ -62,7 +63,7 @@ class WeatherRepository:
 	def lastTimestamp(self, city):
 		textTarget = self.fileAdapter.readFile(f"{self.path}/{city}.json")
 		dictTarget = self.jsonAdapter.textToDict(textTarget)
-		days = dictTarget.get("data")
+		days = dictTarget.get("data") or []
 
 		if len(days) > 0:
 			return days[-1].get("timestamp")
