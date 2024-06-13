@@ -7,4 +7,6 @@ class HttpAdapter:
 		return request.urlopen(req)
 
 	def get(self, url, params):
-		return request.urlopen("{:s}?{:s}".format(url, params))
+		requestURL = "{:s}?{:s}".format(url, params)
+		response = request.urlopen(parse.quote(requestURL, safe=':/?&='))
+		return response.read().decode("utf-8")
