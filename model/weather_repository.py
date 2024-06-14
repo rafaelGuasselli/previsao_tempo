@@ -52,7 +52,10 @@ class WeatherRepository:
 		
 		dictTarget = dictSource
 		dictTarget["data"] = daysTarget
-		self.fileAdapter.writeToFile(f"{self.path}/{city}.json", self.jsonAdapter.dictToText(dictTarget))
+		city = dictTarget.get("city_name")
+
+		if city != None:
+			self.fileAdapter.writeToFile(f"{self.path}/{city}.json", self.jsonAdapter.dictToText(dictTarget))
 
 	def needsRefresh(self, city):
 		todayP6 = self.dateAdapter.todayPlus6()

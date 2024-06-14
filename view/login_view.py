@@ -6,10 +6,10 @@ class LoginView(Tk.Tk):
 		super().__init__()
 		self.controller = LoginViewController(self)
 		self.loggedIn = False
-		self.inicializar()
+		self.initialize()
 	
-	def inicializar(self):
-		self.__clearWindow()
+	def initialize(self):
+		self.__clearElements()
 
 		self.resizable(False, False)
 		self.geometry("400x300")
@@ -42,6 +42,6 @@ class LoginView(Tk.Tk):
 	def __addLoginButton(self, container, onclick):
 		self.loginButton = Tk.Button(container, text="Login", font=("Arial", 14), command=onclick).grid(row=2, columnspan=2, pady=(10,0))
 
-	def __clearWindow(self):
+	def __clearElements(self):
 		for child in self.winfo_children(): 
 			child.destroy()

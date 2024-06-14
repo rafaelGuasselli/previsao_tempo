@@ -1,5 +1,5 @@
 from tkinter import messagebox
 
 class Popup:
-	def __init__(self, titulo, mensagem):
-		messagebox.showinfo(titulo, mensagem)
+	def __init__(self, title, message):
+		messagebox.showinfo(title, message)

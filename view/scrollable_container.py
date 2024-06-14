@@ -4,9 +4,9 @@ from tkinter.constants import *
 class ScrollableContainer(tk.Frame):
 	def __init__(self, parent, *args, **kw):
 		tk.Frame.__init__(self, parent, *args, **kw)
-		self.inicializar(parent, *args, **kw)
+		self.initialize(parent, *args, **kw)
 
-	def inicializar(self, parent):
+	def initialize(self, parent):
 		self.parent = parent
 
 		self.scrollbar = tk.Scrollbar(self, orient=VERTICAL)
