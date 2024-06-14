@@ -5,7 +5,8 @@ class LoginViewController:
 	def __init__(self, view):
 		self.view = view
 		self.userRepo = UserRepository()
-		
+		self.popup = Popup()
+
 	def login(self):
 		name = self.view.getName()
 		password = self.view.getPassword()
@@ -13,7 +14,7 @@ class LoginViewController:
 		if self.view.loggedIn:
 			self.close()
 		else:
-			Popup("Erro", "Usuário ou senha incorreto!")
+			self.popup.showinfo("Erro", "Usuário ou senha incorreto!")
 
 	def close(self):
 		self.view.quit()
